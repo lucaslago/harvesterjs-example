@@ -4,6 +4,7 @@
   "description": "Example project to showcase harvesterjs",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/agco-fuse/harvesterjs-example/issues"
   },
-  "homepage": "https://github.com/agco-fuse/harvesterjs-example#readme"
+  "homepage": "https://github.com/agco-fuse/harvesterjs-example#readme",
+  "dependencies": {
+    "harvesterjs": "^2.3.7",
+    "joi": "^10.2.0"
+  },
+  "devDependencies": {
+    "http-as-promised": "^1.1.0"
+  }
 }

@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    image: mongo:2.6.8
+    expose:
+      - "27017"
+    command: mongod --smallfiles --replSet "test"
+    ports:
+      - "27017:27017"
+  dbConfig:
+    image: mongo:2.6.8
+    command: bash -c "sleep 20 && mongo db/local --eval 'printjson(rs.initiate())' && tail -f /dev/null"
+    depends_on:
+      - db
+  web:
+    build: .
+    command: bash -c 'sleep 25 && npm start'
+    environment:
+      MONGODB_URL: "mongodb://db"
+      PORT: 5000
+    #volumes:
+      #- .:/usr/src/app
+      #- /usr/src/app/node_modules
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
