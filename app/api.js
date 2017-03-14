@@ -3,11 +3,13 @@ const Joi = require('joi');
 
 const options = {
   adapter: 'mongodb',
-  connectionString: "mongodb://db",
+  connectionString: "mongodb://mongodb1",
   db: 'blog',
   inflect: true,
-  oplogConnectionString: (process.env.OPLOG_MONGODB_URL || "mongodb://db:27017/local") + '?slaveOk=true',
+  oplogConnectionString: (process.env.OPLOG_MONGODB_URL || "mongodb://mongodb1:27017") + '?slaveOk=true',
 };
+
+console.log('mongodb://mongodb1:27017' + '?slaveOk=true');
 
 // define 2 resources
 // posts and comments
